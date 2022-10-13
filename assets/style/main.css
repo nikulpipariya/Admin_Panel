@@ -1,0 +1,265 @@
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'League Spartan', sans-serif;
+    /* box-shadow:0px 0px 3px #aaa; */
+}
+
+:root{
+    --primary: #213875;
+    --hover: #F433AB;
+    --secondary:#f6ddda;
+    --body-background: #ffffff;
+    --accent:#dcf6da;
+}
+a{
+    text-decoration: none;
+    color:var(--primary);
+    display: block;
+}
+a:hover{
+    color:var(--hover);
+}
+
+/* Flex Container */
+.grid_container{
+    display: grid;
+}
+div.flex_container.columns{
+    padding-inline:3.5em;
+}
+.flex_container.columns{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap:1em;
+}
+.flex_container.columns.center{
+    justify-content: center;
+}
+.grid_container.col_4{
+    grid-template-columns: repeat(4,1fr);
+}
+/* Header */
+.header{
+    padding-block:0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2em;
+    font-size: 1.2rem;
+}
+.logo{
+    font-size: 2rem;
+}
+.navigation{
+    display: flex;
+    gap:1em;
+}
+.header a{
+    display: block;
+    padding:0.5em;
+    letter-spacing: 1px;
+}
+.header i{
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.header .cart-menu{
+    position: relative;
+}
+.header .item-count{
+    color:var(--body-background);
+    background-color:var(--primary);
+    display: block;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 20px;
+    border-radius: 50%;
+    position:absolute;
+    top:-13px;
+    right: -13px;
+}
+.user_menu{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding-right: 1em;
+    gap:0.5em;
+}
+.user_menu li{
+    flex:1 0 auto;
+}
+.has_submenu{
+    position: relative;
+}
+.has_submenu:hover > .submenu{
+    display: block;
+}
+.submenu{
+    display: none;
+    list-style-type: none;
+    position: absolute;
+    left: 0;
+    padding-top: 10px;
+    right: -40px;
+}
+.submenu a{
+    background-color: var(--body-background);
+}
+
+form input{
+    width: 100%;
+    padding:1em 2em;
+}
+.button{
+    background-color:var(--primary);
+    color:white;
+    padding-block: 7px;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+.button::after{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    background-color: rgb(246, 221, 218);
+    z-index: -1;
+}
+.button:hover{
+    background-color: transparent;
+    color: var(--primary);
+}
+.button:hover:after{
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
+form :is(input,textarea,select):focus{
+    outline: 0;
+    border: 2px solid var(--primary);
+}
+.col-2{
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+/* Hero Section */
+.hero{
+    width: 100%;
+    height:85vh;
+}
+.theme_back{
+    background-color: var(--accent);
+}
+
+/* Login Page */
+
+.login_title{
+    font-size: 4rem;
+    font-weight: 500;
+    color: var(--primary);
+}
+.login_subtitle{
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+/* Home Hero section */
+
+.home.hero{
+    height: 100vh;
+    background-image: url('../images/background/home_featured.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 5em;
+    background-color: rgb(255, 255, 255,0.3);
+    background-blend-mode:overlay;
+}
+.home.hero .container{
+    padding-bottom: 3em;
+    display: grid;
+}
+.container p.title{
+    font-size: 3rem;
+    text-align: center;
+    color: var(--primary);
+    padding-bottom: 10px;
+}
+.container p.subtitle{
+    font-size: 1.8rem;
+    text-align: center;
+    color:var(--accent);
+    background-color: #213875;
+    display: inline-block;
+    margin: auto;
+    padding: 10px 35px 5px 35px;
+}
+
+/* Home Listing section */
+
+.home.listing{
+    height: 100vh;
+    padding-top: 5em;
+    display: grid;
+}
+
+/* Product Listing */
+.product_box{
+    text-align: center;
+}
+.product_image img{
+    height: 300px;
+}
+.product_box .product_title{
+    font-size: 1.2rem;
+    padding-top: 0.5em;
+    font-weight: 300;
+}
+.product_price{
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding-top: 0.3em;
+}
+.currency{
+    font-size: 1.4rem;
+}
+.sales_price{
+    position:relative;
+    padding-left:5px;
+}
+.sales_price span::before{
+    content: '';
+    width: 100%;
+    height: 2px;
+    background-color:var(--primary);
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform:translateY(-100%);
+}
+.add_to_cart{
+    padding:0.4rem 1.5rem;
+    border:none;
+    background-color:var(--primary);
+    color:var(--accent);
+    font-size:1rem;
+    line-height:1em;
+    border-radius:3px;
+    margin-top:0.5rem;
+    cursor:pointer;
+}
